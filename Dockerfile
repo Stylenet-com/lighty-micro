@@ -6,9 +6,12 @@ RUN apt-get update
 
 RUN apt-get install lighttpd lighttpd-mod-magnet -y
 
-RUN apt-get install php5-cgi php5-gd php5-mysql php5-curl -y
+RUN apt-get install php5-cgi php5-cli php5-gd php5-mysql php5-curl -y
 
 COPY lighttpd /etc/lighttpd/
+
+COPY php /etc/php5/cgi/
+COPY php /etc/php5/cli/
 
 RUN mkdir /var/run/lighttpd
 
